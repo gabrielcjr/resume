@@ -423,6 +423,31 @@ on R1 or R2.
 
 ---
 
+# CLOUD AND INFRASTRUCTURE — provenance
+
+Recorded so scoring stays honest and interviews hold no surprises. The Skills line lists
+these; this says where each one comes from.
+
+| Claim | Provenance | Safe to say |
+| --- | --- | --- |
+| **Docker** | Professional. Dockerfiles, `Dockerfile.prod`, entrypoint scripts including a worker entrypoint, `.dockerignore`, docker-compose across all three repos and every personal project. | Strong. Use freely. |
+| **CI/CD, GitHub Actions** | Professional. Authored `ci_cd.yaml`, `delete-old-images.yaml`, added testing to CI, parallelized the suite (**R4**, 20%). | Strong. Use freely. |
+| **Nginx** | Professional. Gateway hardening, deny rules, security headers, static serving (**R10**). | Strong. |
+| **Kubernetes** | Professional but **operator-level, not author-level**. 11 commits to `codeedu/k8s-secrets-homolog` editing ConfigMaps and Secrets across a kustomize-managed cluster of ~20 services; ingress TLS trust (**R10**); eliminated an always-on worker pod (**W1**). The Deployments, HPAs, Services, and Ingresses were authored by Euller (440 commits). Plus one personal GKE deployment. | Can discuss ConfigMaps vs Secrets, kustomize bases and overlays, ingress TLS termination, pod lifecycle. **Cannot** claim authoring cluster infrastructure. A JD asking someone to own k8s infra is a gap. |
+| **Oracle Cloud** | Personal but genuinely operational. Self-managed VM hosting the portfolio plus three deployed applications (`atsproof.website`, `amae.gabrielcjr.website`, `findjobs.gabrielcjr.website`) with custom domains and TLS. | Real hands-on deployment and operations. More substantive than most resumes' cloud lines. |
+| **AWS (S3)** | Professional. Student ID card photo paths, boto3. | Fine. |
+| **AWS (EC2, Lambda)** | **Studied and used personally, not professionally.** Zero references in any Full Cycle repo. Gabriel's decision (2026-08-31) is to keep them on Skills, which is his call and defensible: a Skills section lists capability, not employment. | Keep on Skills. **Never put them in an experience bullet**, and if a JD requires professional Lambda or EC2 depth, report it as a gap. |
+| **GCP (Compute Engine, GKE)** | Same. The Full Cycle GCP and k8s infrastructure was set up by Wesley Willians in July 2020, before Gabriel joined in 2021. GKE is backed by one personal deployment. | Same rule. |
+
+## Rule for scoring
+
+A Skills-line entry is **not** evidence of professional depth. When a JD demands hands-on
+production experience with EC2, Lambda, or Compute Engine, that is a **real gap** even though
+the keyword matches. Do not let a Skills match mask a missing capability, and do not build an
+experience bullet on any of them.
+
+---
+
 # FRONT-END AT FULL CYCLE (professional, server-rendered)
 
 **Corrects an earlier misreading.** Gabriel's Full Cycle work was described as uniformly
