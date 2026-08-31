@@ -1,0 +1,172 @@
+%-------------------------
+% Resume in Latex
+% Template author : Glauber Santana
+% MASTER resume — do not tailor this file directly.
+% Tailor per application with the /tailor-resume skill, which writes a copy to tailored/
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% \titleformat{\section}{
+%   \vspace{-4pt}\bfseries\raggedright\large
+% }{}{0em}{}[\color{black} \vspace{-5pt}]
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+\titleformat{\subsection}{
+  \vspace{-3pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{black}\vspace{-3pt}]
+
+\pdfgentounicode=1
+
+% -------------------- COMMANDS --------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small\textbf{#1} & \textbf{#2} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{3.60004pt}
+
+% -------------------- DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADER --------------------
+\begin{center}
+    \textbf{\huge Gabriel Carneiro Jr} \\ \vspace{2pt}
+    \small
+    \href{mailto:gabrielcjr4@gmail.com}{gabrielcjr4@gmail.com} |
+    +55 75 99276-2777 |
+    \href{https://www.linkedin.com/in/gabriel-carneiro-jr}{linkedin.com/in/gabriel-carneiro-jr} |
+    \href{https://github.com/gabrielcjr}{github.com/gabrielcjr}
+\end{center}
+
+% -------------------- SKILLS --------------------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages:} PHP, Python, TypeScript, JavaScript \\
+    \textbf{Backend Frameworks:} Symfony, Django, FastAPI, Celery, NestJS, Node.js \\
+    \textbf{Cloud \& Infrastructure:} AWS (Lambda, EC2), GCP (Compute Engine, GKE), Docker, Kubernetes, CI/CD (GitHub Actions) \\
+    \textbf{Databases \& Caching:} MySQL, PostgreSQL, Redis, Doctrine ORM, Relational Design, Query Tuning \\
+    \textbf{Architecture:} Event-Driven Architecture, Queue-Based Processing, Microservices, RESTful API Design, Domain Validation, Spec-Driven Development (SDD), Architecture Decision Records (ADR) \\
+    \textbf{AI \& Agentic:} AI Coding Agents (Claude Code), Model Context Protocol (MCP), Multi-Agent Workflows, LangChain, LLM Integration, AI Cost Controls \\
+    \textbf{Engineering Practices:} Automated Testing, Backward Compatibility, Secure Backend Design, Performance Profiling
+  }}
+\end{itemize}
+
+% -------------------- SUMMARY --------------------
+\section{Summary}
+\small{Senior-level Backend Engineer with 5+ years in tech, the last 3+ focused on building, operating, and scaling production backend systems in PHP and Python. I take features end to end across PHP/Symfony and Python/Django services --- designing RESTful API schemas, event-driven and queue-based architectures, and containerized services on Docker and Kubernetes --- delivering measurable results like 15--20\% performance gains, a 20x endpoint latency reduction, and the elimination of entire classes of manual work. Strong on relational database design, query tuning, and caching with MySQL, PostgreSQL, and Redis. I integrate AI directly into core products (AI-powered microservices, granular controls over AI API cost) and build daily with AI coding agents such as Claude Code, designing the context, tooling, and agent workflows that make AI-assisted development effective across a large codebase. I practice Spec-Driven Development (SDD) and Architecture Decision Records (ADR) to articulate architectural trade-offs, preserve backward compatibility, and break complex features into releasable components.}
+
+% -------------------- EXPERIENCE --------------------
+\section{Experience}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading{Full Stack Developer — Full Cycle}{July 2025 -- July 2026}
+        \resumeItemListStart
+            \resumeItem{Eliminated manual work 100\% by automating challenge evaluation with an event-driven PHP webhook integration to an AI-powered LLM microservice}
+
+            \resumeItem{Cut manual administrative effort by 90\% with a PHP REST API, automating the diploma credential lifecycle with comprehensive domain validation in a domain-driven service architecture}
+
+            \resumeItem{Cut the cost of 100\% of unwanted LLM API token consumption on disabled courses by engineering granular feature flags in Python with admin controls and conditional rendering}
+
+            \resumeItem{Accomplished a 90\% acceleration in page section setup by engineering reusable Python/Django admin mixins, enabling instant deep-cloning of multi-relational sections}
+
+            \resumeItem{\textit{Context: Full Cycle is a leading Brazilian software engineering company and developer-education platform, focused on microservices and distributed systems. As a backend engineer on the internal product team, I built internal tooling and automation to eliminate manual work across the platform — from reusable admin components that accelerated content setup, to feature-flag systems that controlled LLM API costs, to event-driven, queue-based integrations automating student-facing workflows like credential issuance and challenge evaluation.}}
+        \resumeItemListEnd
+
+        \resumeProjectHeading{Full Stack Developer — Full Cycle}{July 2024 -- June 2025}
+        \resumeItemListStart
+            \resumeItem{Decreased a client-facing endpoint's response time by 20x through query tuning, fixing a pagination query bug in PHP/Symfony}
+
+            \resumeItem{Cut production infrastructure costs by eliminating an always-on containerized worker, building a PHP API that serves student-progress data on demand}
+
+            \resumeItem{Accomplished a 15\% increase in server performance, by performing runtime, framework, and dependency upgrades to a production Python/Django sales application}
+
+            \resumeItem{Reduced CI/CD pipeline feedback time by 20\% by parallelizing test execution with Python pytest-xdist in Docker}
+
+            \resumeItem{\textit{Context: On the same team, I focused on performance and infrastructure reliability — upgrading and modernizing legacy Python/Django systems, optimizing database queries and CI/CD pipeline execution, and reducing infrastructure costs through more efficient service design.}}
+        \resumeItemListEnd
+
+        \resumeProjectHeading{Backend Developer — Full Cycle}{June 2023 -- June 2024}
+        \resumeItemListStart
+            \resumeItem{Prevented sales lead loss from transient network failures by decoupling CRM lead sync into a queue-based, event-driven Celery worker architecture on Docker containers, with automatic retries and safe reprocessing}
+
+            \resumeItem{Reduced student news-feed query latency up to 80\% by caching complex multi-join queries with a custom parameter-based Doctrine (PHP) result-caching layer}
+
+            \resumeItem{Cut manual sync-recovery effort 90\% with a PHP integration-monitoring tool for HubSpot syncs, surfacing failed payment events with one-click admin retries}
+
+            \resumeItem{Removed 5 classes of exposed entry points --- config, backup, source, dependency, and CMS-exploit paths --- from a production app's public attack surface by blocking automated bot probes at the Nginx gateway, applying secure backend design principles}
+
+            \resumeItem{\textit{Context: Earlier role on the same internal product team, where I accumulated Support Analyst and Development responsibilities, delivering backend features across both the Python/Django and PHP/Symfony sides of the platform while handling support duties in parallel. Focused on third-party API integrations, asynchronous and queue-based processing, student lifecycle automation, and backend security hardening.}}
+        \resumeItemListEnd
+
+        \resumeProjectHeading{Software Analyst — Full Cycle}{February 2021 -- May 2023}
+        \resumeItemListStart
+            \resumeItem{\textit{Context: Technical role focused on the analysis, support, and troubleshooting of software projects, including code analysis, error identification, and implementation of fixes. Provided support to students in resolving issues related to software development and project execution, requiring practical knowledge of programming and the technologies used in the courses.}}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading{MBA in Software Engineering with AI — Full Cycle}{July 2025 -- September 2026}
+        \resumeProjectHeading{MBA - Arquitetura Full Cycle — Full Cycle}{January 2023 -- September 2024}
+        \resumeProjectHeading{Bachelor of Applied Science (BASc), Computer Software Engineering — Ampli}{May 2022 -- May 2025}
+        \resumeProjectHeading{Master of Christian Studies — Union University}{December 2018 -- November 2024}
+        \resumeProjectHeading{Bachelor of Business Administration (BBA) — UEFS}{February 2004 -- May 2009}
+    \resumeSubHeadingListEnd
+\end{document}

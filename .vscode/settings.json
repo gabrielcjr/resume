@@ -1,0 +1,21 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "/mnt/c/Users/gacar/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOCFILE%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex",
+      "tools": ["pdflatex"]
+    }
+  ]
+}

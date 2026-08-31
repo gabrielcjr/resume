@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "resume-ats-optimizer": {
+      "source": "paramchoudhary/resumeskills",
+      "sourceType": "github",
+      "skillPath": "skills/resume-ats-optimizer/SKILL.md",
+      "computedHash": "2e3782b6176807b6d714213a14258bd86ca988d442757674eb86181d81465abd"
+    }
+  }
+}

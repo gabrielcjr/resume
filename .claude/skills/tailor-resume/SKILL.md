@@ -1,0 +1,165 @@
+---
+name: tailor-resume
+description: Tailor the LaTeX resume (main.tex) to a specific job description for maximum ATS keyword match, producing a per-application copy without modifying the master. Use when the user supplies a job posting/description and asks to tailor, customize, target, or ATS-optimize their resume for it.
+user-invocable: true
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Bash
+  - WebFetch
+---
+
+# /tailor-resume — ATS-targeted resume tailoring
+
+Tailors `main.tex` to one job description and produces a compiled, per-application PDF.
+
+Arguments passed: `$ARGUMENTS` (job description text, a path to a file containing it, or a job posting URL).
+
+---
+
+## The one rule that overrides everything
+
+**Never fabricate.** Tailoring means *surfacing, reordering, and rewording things that are already true* — never inventing them.
+
+Forbidden, no exceptions, even if the user asks:
+- Adding a technology, framework, or tool Gabriel has not actually used
+- Inventing or inflating metrics, percentages, team sizes, or scale figures
+- Changing employers, job titles held, or employment dates
+- Claiming seniority, certifications, or degrees not held
+- White-text/invisible keyword stuffing, hidden divs, off-page text, or repeating keywords in ways a human reader would find absurd
+
+Modern ATS pipelines flag stuffing, and recruiters read the PDF. A resume that wins the keyword scan and collapses in the screening call is a net loss.
+
+**What you *can* do freely:** reorder, re-weight, re-word using the JD's exact vocabulary, choose which true bullets to include or cut, adjust emphasis, and expand on real work that the base resume compressed.
+
+If the JD requires something genuinely missing, do not paper over it — report it as a gap (see Step 7).
+
+---
+
+## Step 1 — Get the job description
+
+Resolve `$ARGUMENTS` in this order:
+1. **Looks like a URL** → fetch it with WebFetch. If the fetch is blocked or returns a login wall (common for LinkedIn/Workday), ask the user to paste the text instead — do not guess at the posting's contents.
+2. **Looks like a file path** → Read it.
+3. **Looks like pasted JD text** → use it directly.
+4. **Empty** → ask the user to paste the job description before doing anything else.
+
+Also identify the **company name** and **exact job title**. If either is unclear from the JD, ask — both are needed for the output filename and for title alignment.
+
+## Step 2 — Read the master and know the truth inventory
+
+Read `main.tex` in full. It is the source of truth for what Gabriel has actually done.
+
+Also check for an optional `experience-bank.md` in the resume folder — if it exists, it holds true accomplishments and skills that did not fit on the base resume, and it is fair game for tailoring. If it does not exist, work only from `main.tex` (and anything the user states in conversation this session).
+
+Never treat a previous *tailored* copy as the truth inventory — those are already slanted toward a different job. Always start from `main.tex`.
+
+## Step 3 — Extract JD keywords
+
+Build a keyword list from the JD, separating:
+- **Hard requirements** — languages, frameworks, databases, cloud, tools, methodologies stated as required/must-have
+- **Preferred / nice-to-have**
+- **Domain & responsibility language** — e.g. "event-driven", "microservices", "distributed systems", "API design", "observability", "mentoring"
+- **The exact job title** and any seniority framing
+
+Record each keyword in the **JD's exact surface form**. ATS keyword matching is largely literal (with light stemming), not semantic: "REST API" and "RESTful API" may not match each other, and "K8s" may not match "Kubernetes". When Gabriel genuinely has the skill, use the JD's spelling — or carry both forms, e.g. `Kubernetes (K8s)`, `CI/CD (Continuous Integration/Continuous Deployment)`.
+
+## Step 4 — Map keywords to real evidence
+
+For each JD keyword, classify:
+
+| Class | Meaning | Action |
+|---|---|---|
+| **Direct** | Already in `main.tex` verbatim | Keep; move it earlier if it's a hard requirement |
+| **Equivalent** | Has the skill, different wording | Re-word to the JD's exact term |
+| **Adjacent** | Real, demonstrable through related work | Surface it honestly, without overstating |
+| **Missing** | No genuine basis | Do NOT add. Log for the gap report |
+
+Do this mapping before editing anything — it drives every edit that follows.
+
+## Step 5 — Write the tailored copy
+
+**Never edit `main.tex`.** Copy it to `tailored/<Company>-<Role-Slug>.tex` (create `tailored/` if needed), then edit only the copy. Keep the preamble, macros, spacing, and overall layout of the template exactly as-is — it is already ATS-friendly (single column, text-based, no images, no multi-column tables, no critical info in headers/footers). Do not restructure it.
+
+Tailor these sections, in this priority order:
+
+**1. Skills block** — the densest keyword zone and the highest-leverage edit.
+   - Reorder the seven categories so the ones the JD emphasizes come first.
+   - Within each line, put JD-matching items first.
+   - Re-word to the JD's exact terms wherever it's the same real skill.
+   - Cut items irrelevant to this JD if space is tight — but only if they aren't transferable signal.
+   - Never add a technology Gabriel hasn't used.
+
+**2. Summary** — the second-densest zone, and where title alignment happens.
+   - Open by aligning to the target title (e.g. if the JD is "Backend Engineer", lead as a backend engineer — this is a true framing of his last 3+ years, not a fabricated title).
+   - Fold in the top 5–8 JD keywords naturally, in prose that still reads like a person wrote it.
+   - Mirror the JD's domain language (e.g. "distributed systems", "event-driven architecture").
+   - Keep it truthful about years of experience: 5+ years in tech, last 3+ backend-focused.
+
+**3. Experience bullets** — reorder and select; do not invent.
+   - Within each role, lead with the bullets closest to the JD's responsibilities.
+   - Re-word existing accomplishments in the JD's vocabulary while keeping every metric exactly as it is in the master.
+   - Drop bullets irrelevant to this JD when trimming for length.
+   - The italic **Context** paragraphs are useful keyword real estate and explain domain fit — keep them when they carry JD-relevant language, but they are the first thing to trim when cutting to fit.
+
+**4. Education** — usually untouched. Reorder only if the JD emphasizes a specific credential.
+
+**5. Header** — never change. Name and contact details stay exactly as-is.
+
+**Length:** target ≤ 2 pages. Trim in this order: Context paragraphs → least-relevant bullets → oldest role's detail.
+
+## Step 6 — Compile and verify
+
+Compile the tailored copy, not the master:
+
+```bash
+PDFLATEX="/mnt/c/Users/gacar/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe"
+cd /home/gacar/resume/tailored
+"$PDFLATEX" -synctex=1 -interaction=nonstopmode -file-line-error <file>.tex 2>&1 \
+  | grep -E "Overfull|Underfull|Error|Output written|Warning"
+```
+
+Environment notes for this machine (WSL):
+- The project lives in WSL at `/home/gacar/resume`, but **there is no LaTeX installed inside WSL**. The only TeX is Windows MiKTeX, invoked through the `.exe` path above. `which pdflatex` returns nothing — that is expected, not a broken setup.
+- Do **not** try `export PATH=.../miktex/bin/x64` and then run bare `pdflatex`. The directory is already on `$PATH`, and Node/shell resolution of the extensionless name fails with `EACCES`. Always call the full `.exe` path.
+- MiKTeX resolves *Windows* paths, so pass a **bare filename** (`main.tex`, not an absolute WSL path) and rely on the working directory. `%DOCFILE%`, not `%DOC%`, in LaTeX Workshop config for the same reason.
+- `latexmk` does **not** work here (MiKTeX ships no Perl); use `pdflatex` directly. VSCode's LaTeX Workshop is configured in `.vscode/settings.json` with a plain-`pdflatex` recipe pointing at the full `.exe` path.
+- On-the-fly package installation is enabled, so missing `.sty` files self-resolve on first use.
+- MiKTeX may print `pdflatex: major issue: So far, you have not checked for MiKTeX updates.` after a successful run. It is noise, not a build failure — check for `Output written on` instead.
+
+Fix any `Overfull \hbox` warnings (usually an over-long heading — shorten the text rather than changing the macros), then recompile until the output is clean. Confirm the PDF was written and check the page count.
+
+Optional sanity check that the PDF's text layer extracts cleanly (this is what an ATS sees):
+
+```bash
+"/mnt/c/Users/gacar/AppData/Local/Programs/MiKTeX/miktex/bin/x64/miktex-pdftotext.exe" \
+  <file>.pdf - | head -60
+```
+
+Note the `miktex-` prefix: MiKTeX ships its poppler tools under that name, and there is no plain `pdftotext` on this machine. If it fails, skip the check — don't install anything for this.
+
+## Step 7 — Report honestly
+
+Report back:
+
+1. **Output path** of the `.tex` and `.pdf`, and the page count.
+2. **Coverage table** — each hard requirement from the JD → matched / not matched → where it now appears.
+3. **Gaps** — every JD requirement with no genuine basis, stated plainly. This is the most valuable part of the report: it tells Gabriel what he'd be asked about, or whether the role is a stretch. Never quietly omit a gap because it looks bad.
+4. **Judgment calls** — any place a term was stretched to fit the JD's wording, so he can veto it.
+
+Keep the report short and scannable. Do not restate the whole resume.
+
+---
+
+## Reference: what actually moves an ATS
+
+- **Exact-term matching beats synonyms.** Match the JD's literal phrasing for real skills.
+- **Both forms of acronyms** — spelled out and abbreviated — in at least one place.
+- **Title alignment** is heavily weighted; the summary is the safe place to align without falsifying past titles.
+- **Skills section density** carries most of the keyword score.
+- **Parseability**: single column, real text, standard section headings (`Skills`, `Experience`, `Education`), no images, no text boxes, no critical info in headers/footers. This template already satisfies all of it — don't "fix" it.
+- **Recency weighting**: keywords in the most recent role count more than in the oldest.
+- What does *not* help: keyword stuffing, invisible text, tables of keywords, or padding the skills list with things he can't discuss in an interview.
