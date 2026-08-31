@@ -43,6 +43,21 @@ Modern ATS pipelines flag stuffing, and recruiters read the PDF. A resume that w
 - **Never claim a delivered outcome for work that did not ship.** His contract ended July 2026;
   the Symfony migration was never deployed. Say "remediation", not "completed the migration".
 
+**Never restate years of experience to match a JD's threshold.** Gabriel has 5+ years in
+tech, the last 3+ backend-focused in Python, PHP, and TypeScript.
+
+- **True and usable:** 3+ years of professional **full-stack** work, server-rendered. His job
+  title at Full Cycle was Full Stack Developer, and the front-end work is real: 712 Twig
+  templates, 222 HTML files, 71 SCSS files, AJAX-driven filtering, dynamic dropdowns, modals,
+  defensive loading and double-submit handling, SCSS through webpack. See the
+  "FRONT-END AT FULL CYCLE" section of the bank.
+- **Not true:** 3 years of professional **React**, Node.js, or component-framework SPA work.
+  Those are real skills evidenced by deployed personal projects built in 2026.
+
+If a JD gates on "N years of React" or "N years of Node", report it as a **real gap**. Do not
+tailor around it. Use the full-stack framing where a JD wants full-stack breadth without
+naming a framework, which is honest and often exactly what is being asked.
+
 **Never use an activity number as a metric.** Commits, lines of code, files touched, and
 models defined measure effort, not impact. A recruiter reads them as busywork. Valid metrics
 are business outcomes: percent, dollars, time, volume. Activity numbers live in

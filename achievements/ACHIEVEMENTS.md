@@ -423,6 +423,46 @@ on R1 or R2.
 
 ---
 
+# FRONT-END AT FULL CYCLE (professional, server-rendered)
+
+**Corrects an earlier misreading.** Gabriel's Full Cycle work was described as uniformly
+backend. It is not. He did substantial professional front-end work; it is server-rendered
+rather than SPA.
+
+| Repo | His front-end file touches |
+| --- | --- |
+| codeplatform | **712 Twig templates**, 5 JS, 5 CSS |
+| eventsplatform | **222 HTML**, **71 SCSS**, 6 JS |
+| forum-code-education | 28 HTML |
+
+**Stack:** Twig (Symfony) and Django templates, SCSS compiled through webpack, Bootstrap,
+jQuery, vanilla JS. No component framework.
+
+**Verified interactive work, all his:**
+
+- **AJAX-driven filtering and dynamic UI:** classroom filter by course over AJAX (2026-04-06); endpoint and UI for classrooms with overdue invoices (2026-02-23); overdue awareness report with classroom selection over AJAX (2026-02-20)
+- **Defensive UX:** error handling on AJAX filter dropdowns to prevent a stuck loading state (2026-04-06); disabling the certificate request submit button during AJAX calls to prevent double submission (2025-12-18)
+- **UI components:** action buttons refactored into a dropdown menu on certificate requests (2026-01-30); modal on wait-list button click (2023-08-02); calendar display (2026-04-16)
+- **Build pipeline and styling:** adding SCSS to webpack (2025-07-24), splitting CSS into block-level stylesheets (2026-01-30), discipline and per-page SCSS
+
+- *Full-stack framing:* Delivered full-stack features end to end, building server-rendered interfaces in Twig and Django templates with SCSS and AJAX-driven filtering, alongside the APIs and data layers behind them.
+- *Front-end emphasis:* Built interactive admin and reporting interfaces with AJAX filtering, dynamic dropdowns, modals, and defensive loading and double-submit handling, styled with SCSS through a webpack pipeline.
+
+## The distinction that must always hold
+
+**True:** 3+ years of professional full-stack work, server-rendered (Twig, Django templates,
+SCSS, jQuery, AJAX). His job title at Full Cycle was literally **Full Stack Developer**.
+
+**Not true:** 3 years of professional **React** or component-framework SPA experience. React,
+Node.js, and NestJS are real skills evidenced by **deployed personal projects built in 2026**.
+
+**Never blur these to clear a JD threshold.** If a posting gates on "N years of React" or
+"N years of Node", that is a **real gap**, and it gets reported as one. Use the full-stack
+framing above where the JD wants full-stack breadth without naming a specific framework, and
+it is entirely honest there.
+
+---
+
 # PERSONAL PROJECTS
 
 **Structural rule, non-negotiable.** These are Gabriel's own projects, not Full Cycle work.
