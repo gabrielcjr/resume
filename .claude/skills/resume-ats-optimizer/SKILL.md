@@ -5,6 +5,54 @@ description: Optimize resumes for Applicant Tracking Systems, check ATS compatib
 
 # Resume ATS Optimizer
 
+## THIS REPOSITORY — read before scoring anything
+
+The generic guidance below still applies, but in this repository a scored gap is often not a
+real gap. Before reporting one, check the achievement bank.
+
+**Always read first:**
+1. `main.tex` — the master resume, what is on the page today
+2. `achievements/ACHIEVEMENTS.md` — the full bank of verified accomplishments, most of which
+   do not fit on the two-page master
+3. `achievements/README.md` — current state summary
+
+**Why this changes the report.** Scoring `main.tex` alone produces false gaps. A JD requiring
+React once scored 41% against a resume where React appeared only in the Skills list, while a
+deployed React 19 application already existed in the bank. A gap that the bank can fill is
+not a gap, it is a tailoring instruction.
+
+So every gap gets classified:
+
+| Class | Meaning | How to report it |
+|---|---|---|
+| **Coverable** | Not in `main.tex`, but a READY bank entry or project covers it | "Missing from the master; pull in R11 and the DevATS project." A prescription, not a diagnosis. |
+| **Real** | No genuine basis anywhere | Report plainly. Never soften it. |
+
+**Known real gaps** (do not go hunting, and never paper over them): **Go**, **Java / Spring
+Boot**, **Kafka**. All three are zero across every repository and both MBAs. They have blocked
+hard requirements on multiple JDs.
+
+**Known coverable gaps**, all backed by deployed personal projects or bank entries: React,
+Node.js, NestJS, TypeScript on the front end, FastAPI, LangChain, MCP, multi-agent workflows,
+SDD, ADR, prompt-injection defense, LLM provider failover.
+
+**Scoring rules for this repository:**
+- Score `main.tex` as it stands, then state the **achievable score** after tailoring from the
+  bank. Both numbers, so the ceiling is visible.
+- Only count **READY** entries (R1-R12) and W14 toward the achievable score. Never count an
+  `AWAITING Y` entry with a `[Y]` placeholder, and never a **WITHDRAWN** one.
+- Personal projects count, but weight them lower than production work. They are supplementary
+  for a senior candidate.
+- **Never propose adding a keyword Gabriel cannot support.** If it is a real gap, it stays a gap.
+- Activity numbers (commits, lines, files) are never evidence of a skill and never go in a
+  bullet. See `achievements/EVIDENCE.md`.
+- No em dashes in the report. Gabriel considers them an AI tell.
+
+To actually build the tailored resume, hand off to the **`tailor-resume`** skill, which owns
+bullet selection, mutual exclusions, the Projects section, and compilation.
+
+---
+
 ## When to Use This Skill
 
 Use this skill when the user wants to:

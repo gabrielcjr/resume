@@ -33,6 +33,25 @@ Forbidden, no exceptions, even if the user asks:
 
 Modern ATS pipelines flag stuffing, and recruiters read the PDF. A resume that wins the keyword scan and collapses in the screening call is a net loss.
 
+**Attribution rules — four bank entries were withdrawn for violating these:**
+- **Never claim ownership from commit volume alone.** Check who *created* the code and how
+  Gabriel's contribution compares to the other contributors. Being the top committer on a
+  repository is not the same as owning a feature.
+- **Never filter git history by the name "Gabriel."** Two engineers named Gabriel worked in
+  these repositories. Gabriel Carneiro is `gacarneirojr@hotmail.com`; Gabriel Caetano is
+  `98gabrielsc@gmail.com`.
+- **Never claim a delivered outcome for work that did not ship.** His contract ended July 2026;
+  the Symfony migration was never deployed. Say "remediation", not "completed the migration".
+
+**Never use an activity number as a metric.** Commits, lines of code, files touched, and
+models defined measure effort, not impact. A recruiter reads them as busywork. Valid metrics
+are business outcomes: percent, dollars, time, volume. Activity numbers live in
+`achievements/EVIDENCE.md` and are for interviews only. They may appear inside a *method*
+clause ("across a 369,000-line codebase") but never as the result.
+
+**Style:** no em dashes or en dashes in any user-facing text — Gabriel considers them an AI
+tell. Use commas, colons, or parentheses.
+
 **What you *can* do freely:** reorder, re-weight, re-word using the JD's exact vocabulary, choose which true bullets to include or cut, adjust emphasis, and expand on real work that the base resume compressed.
 
 If the JD requires something genuinely missing, do not paper over it — report it as a gap (see Step 7).
@@ -53,9 +72,23 @@ Also identify the **company name** and **exact job title**. If either is unclear
 
 Read `main.tex` in full. It is the source of truth for what Gabriel has actually done.
 
-Also check for an optional `experience-bank.md` in the resume folder — if it exists, it holds true accomplishments and skills that did not fit on the base resume, and it is fair game for tailoring. If it does not exist, work only from `main.tex` (and anything the user states in conversation this session).
+**Then read `achievements/ACHIEVEMENTS.md` in full.** This is the achievement bank: every
+verified accomplishment, including many that do not fit on the two-page master. It is the
+primary source for bullet swapping and it is fair game for tailoring. Also read
+`achievements/README.md` for the current state summary.
 
-Never treat a previous *tailored* copy as the truth inventory — those are already slanted toward a different job. Always start from `main.tex`.
+The bank's entries are labelled. Obey the labels:
+
+| Label | Meaning | Use it? |
+|---|---|---|
+| **READY (R1-R12)** | Verified outcome metric, confirmed by Gabriel | **Yes** |
+| **W14** | 75%, modeled from observed throughput, not measured | Yes, but say "modeled" if asked |
+| **NO Y** (W1, W2) | Real work, no outcome metric available | Supporting bullet only, never a lead |
+| **AWAITING Y** with a `[Y]` placeholder | Number not yet supplied | **Never.** Do not ship a placeholder. |
+| **WITHDRAWN / MERGED** | Failed attribution, unshipped, or duplicated | **Never.** Read the reason before arguing with it. |
+| **PERSONAL PROJECTS (P)** | Gabriel's own, three deployed | Projects section only |
+
+Never treat a previous *tailored* copy as the truth inventory — those are already slanted toward a different job. Always start from `main.tex` plus the bank.
 
 ## Step 3 — Extract JD keywords
 
@@ -82,7 +115,10 @@ Do this mapping before editing anything — it drives every edit that follows.
 
 ## Step 5 — Write the tailored copy
 
-**Never edit `main.tex`.** Copy it to `tailored/<Company>-<Role-Slug>.tex` (create `tailored/` if needed), then edit only the copy. Keep the preamble, macros, spacing, and overall layout of the template exactly as-is — it is already ATS-friendly (single column, text-based, no images, no multi-column tables, no critical info in headers/footers). Do not restructure it.
+**Never edit `main.tex`.** Copy it to `tailored/<Company> - Resume Gabriel Carneiro.tex`
+(create `tailored/` if needed), then edit only the copy. That exact filename pattern is
+Gabriel's convention — the recruiter sees the filename. If the company name is unknown, use
+the role instead and tell him to rename it. Keep the preamble, macros, spacing, and overall layout of the template exactly as-is — it is already ATS-friendly (single column, text-based, no images, no multi-column tables, no critical info in headers/footers). Do not restructure it.
 
 Tailor these sections, in this priority order:
 
@@ -98,16 +134,75 @@ Tailor these sections, in this priority order:
    - Fold in the top 5–8 JD keywords naturally, in prose that still reads like a person wrote it.
    - Mirror the JD's domain language (e.g. "distributed systems", "event-driven architecture").
    - Keep it truthful about years of experience: 5+ years in tech, last 3+ backend-focused.
+   - **The bank licenses claims the master's summary does not make.** These are all verified,
+     so use them when the JD calls for them: **FastAPI** (ATSProof and Technical Challenge
+     Reviewer, so it may go in a bullet, not just Skills), **LangChain**, **MCP** and
+     **multi-agent workflows** (DevATS ADRs), **React and TypeScript** on the front end,
+     **prompt-injection defense** and **multi-provider LLM failover** (ATSProof),
+     **SDD and ADR** (DevATS, 5 and 5).
 
-**3. Experience bullets** — reorder and select; do not invent.
+**3. Experience bullets** — reorder, select, and **swap in from the bank**; do not invent.
+
+   **Swapping is the highest-value edit after Skills.** `main.tex` carries only what fits on
+   two pages. When the JD emphasises something a bank entry covers better than a bullet
+   currently on the master, swap it in and drop the weaker one. Rules:
+
+   - Only **READY** entries (R1-R12) and **W14**. Never an `[Y]` placeholder, never a
+     WITHDRAWN entry.
+   - Each entry has several pre-written phrasings angled differently (backend, full stack,
+     security, data, product/growth, integration, AI). Pick the one matching the JD's framing
+     rather than rewriting from scratch.
+   - Place the swapped bullet under **the role where the work actually happened**. The bank
+     records dates; check them. Never move work between employers or roles to make it look
+     more recent.
+   - Lead with the largest Y that is *also relevant*. A relevant 15% beats an irrelevant 20x.
+
+   **Some bank entries supersede the master's wording. Prefer the bank version.** The master
+   was written before the achievement interview and a few of its bullets understate the work:
+
+   | Master bullet | Bank version | Why the bank wins |
+   |---|---|---|
+   | "Cut manual administrative effort by 90%... diploma credential lifecycle" | **R7: reduced diploma issuance time by 85%, brought in-house** | The master describes an efficiency gain; the real story is that the company could not issue diplomas at all before, and stopped paying a partner university. A capability beats a percentage. |
+   | "Prevented sales lead loss... with automatic retries" (no metric) | **R11: made 100% of failed CRM lead syncs recoverable** | The master version has no Y at all. |
+
+   When an entry in the bank carries a note saying it supersedes or replaces a master bullet,
+   follow it. The bank is newer and better evidenced than `main.tex`.
+
+   **Mutual exclusions — never use both of a pair on one resume:**
+
+   | Pair | Why | Prefer |
+   |---|---|---|
+   | R7 and W2 | Both read as "credentials/certificates" work | R7 (has a Y, and he originated it) |
+   | R9 and R12 | Both are "made the Django admin faster" | R9 unless the JD stresses campaigns |
+   | R1/R2 and any generic query-optimisation bullet | The vague one makes the specific ones look padded | R1 and R2 |
+
+   Also: never place two `100%` bullets adjacent (R5, R6, R11). Space them across roles or
+   drop one, or the set reads as rounding rather than measurement.
    - Within each role, lead with the bullets closest to the JD's responsibilities.
    - Re-word existing accomplishments in the JD's vocabulary while keeping every metric exactly as it is in the master.
    - Drop bullets irrelevant to this JD when trimming for length.
    - The italic **Context** paragraphs are useful keyword real estate and explain domain fit — keep them when they carry JD-relevant language, but they are the first thing to trim when cutting to fit.
 
-**4. Education** — usually untouched. Reorder only if the JD emphasizes a specific credential.
+**4. Projects** — flex this section per role. `main.tex` ships three: ATSProof (FastAPI, LLM
+   integration), DevATS (NestJS, React, TypeScript), AMAE (Django, financial domain). All
+   three are deployed with live URLs, which is the point: a recruiter can click.
 
-**5. Header** — never change. Name and contact details stay exactly as-is.
+   - **Reorder** so the most JD-relevant project comes first.
+   - **AI or LLM role** → ATSProof leads. Consider adding *Technical Challenge Reviewer* from
+     the bank (FastAPI + LangChain, multi-provider failover) if FastAPI or LangChain are
+     required. It is not deployed, so mention no URL for it.
+   - **Node / React / TypeScript role** → DevATS leads, and it earns a second line.
+   - **Fintech or payments** → AMAE leads.
+   - **Pure backend PHP or Python role, tight on space** → cut to two projects, or drop the
+     section entirely to protect metric-bearing Experience bullets.
+   - Keep every project to one or two lines. Personal projects are **supplementary** for a
+     senior candidate: they must never displace a bullet that carries a business metric.
+   - **Never move a personal project into the Experience section**, and never attribute one to
+     Full Cycle.
+
+**5. Education** — usually untouched. Reorder only if the JD emphasizes a specific credential.
+
+**6. Header** — never change. Name and contact details stay exactly as-is.
 
 **Length:** target ≤ 2 pages. Trim in this order: Context paragraphs → least-relevant bullets → oldest role's detail.
 
@@ -148,7 +243,10 @@ Report back:
 1. **Output path** of the `.tex` and `.pdf`, and the page count.
 2. **Coverage table** — each hard requirement from the JD → matched / not matched → where it now appears.
 3. **Gaps** — every JD requirement with no genuine basis, stated plainly. This is the most valuable part of the report: it tells Gabriel what he'd be asked about, or whether the role is a stretch. Never quietly omit a gap because it looks bad.
-4. **Judgment calls** — any place a term was stretched to fit the JD's wording, so he can veto it.
+4. **Bullets swapped** — which bank entries were pulled in, which master bullets were dropped
+   to make room, and why. Two or three lines.
+5. **Projects section** — which projects were kept, reordered, or cut, and why.
+6. **Judgment calls** — any place a term was stretched to fit the JD's wording, so he can veto it.
 
 Keep the report short and scannable. Do not restate the whole resume.
 
