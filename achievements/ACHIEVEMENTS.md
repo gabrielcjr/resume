@@ -136,6 +136,11 @@ What the config actually does:
 
 - *ON RESUME (accurate, just misfiled):* Removed 5 classes of exposed entry points, config, backup, source, dependency, and CMS-exploit paths, from a Python/Django app's public attack surface by blocking automated bot probes at the Nginx gateway.
 - *Fuller version:* Removed 5 classes of exposed entry points from a production Python/Django app's public attack surface, and enforced HTTPS-only session and CSRF cookies behind Kubernetes ingress TLS, by hardening the Nginx gateway with deny rules, security headers, and version suppression.
+
+> **Attribution:** the exposure was identified by the tech lead. Gabriel owned the
+> remediation: scoping what was reachable, designing and implementing the rules, and the
+> judgment calls below. Do not write or say anything implying he discovered it. If an
+> interviewer asks for a security problem he *found*, this is not that story.
 - *Short:* Removed 5 classes of exposed entry points from a production Django app's attack surface via Nginx gateway hardening.
 
 > **Interview gold:** he deliberately declined per-IP rate limiting, documenting that public

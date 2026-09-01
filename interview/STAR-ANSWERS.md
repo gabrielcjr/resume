@@ -160,34 +160,39 @@ before and after, not something we instrumented.
 
 ---
 
-## 6. Tell me about a time you found a security problem
+## 6. Tell me about a time you worked on a security problem
 
-**Situation.** I was looking at the access logs for a production Django application, a set of
-public-facing sales pages, and there was a constant stream of automated probe traffic. Bots
-scanning for exposed configuration files, backup files, source files, dependency manifests
-like composer.json and requirements.txt, and WordPress and phpMyAdmin exploit paths.
+*Answer this when asked about security work. If you are asked specifically about a problem you
+**discovered**, say plainly that this one was identified by the tech lead and that you owned
+the remediation. Do not let the framing drift.*
 
-**Task.** Nothing had been breached, but the application was answering these requests instead
-of refusing them, and I wanted to know what was actually reachable before deciding what to do.
+**Situation.** Our tech lead flagged that a production Django application, a set of
+public-facing sales pages, was exposed to automated scanner traffic. Bots probing for
+configuration files, backup files, source files, dependency manifests like composer.json and
+requirements.txt, and WordPress and phpMyAdmin exploit paths. The application was answering
+those requests rather than refusing them.
+
+**Task.** He identified the exposure and I owned the remediation. My job was to work out what
+was actually reachable, close it, and do it without breaking the site, because these are
+revenue-generating sales pages.
 
 **Action.** I went through the categories one at a time and blocked five classes at the Nginx
 gateway: dotfiles like .git and .env, source and config and backup extensions, build and
 dependency filenames, CMS scanner paths, and PHP entirely, since it is a Python application
-and no PHP should ever be served. I also turned off the Nginx version banner and added
-baseline security headers. On the Django side I configured the app to trust the ingress TLS
-termination and set session and CSRF cookies to secure outside debug mode.
+and no PHP should ever be served. I turned off the Nginx version banner and added baseline
+security headers. On the Django side I configured the app to trust ingress TLS termination and
+set session and CSRF cookies to secure outside debug mode. I also found directory listing was
+enabled on the static path and turned it off.
 
-Two decisions I want to mention. I found directory listing was enabled on the static path and
-turned it off. And I deliberately did not add per-IP rate limiting, and I documented why: these
-are public sales pages, and a lot of legitimate buyers from one company come through a single
-corporate NAT address. Rate limiting there would have blocked real customers. Brute force
-protection belonged at the application layer instead.
+Two judgment calls I want to mention. I deliberately did not add per-IP rate limiting, and I
+documented why: these are public sales pages, and many legitimate buyers from one company come
+through a single corporate NAT address. Rate limiting would have blocked real customers, so
+brute-force protection belonged at the application layer. And I anchored the CMS-scanner rules
+at path boundaries, so a marketing URL containing something like "wp-admin" as part of a course
+name would not be blocked.
 
-**Result.** Five classes of entry point removed from the public attack surface. I also
-anchored the CMS-scanner rules carefully so that a marketing URL containing something like
-"wp-admin" as part of a course name would not be blocked.
-
----
+**Result.** Five classes of entry point removed from the public attack surface, with no
+disruption to the marketing pages.
 
 ## 7. Tell me about your experience with AI
 
