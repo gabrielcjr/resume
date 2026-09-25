@@ -134,7 +134,7 @@
 
             \resumeItem{Reduced CI/CD pipeline feedback time by 20\% by parallelizing test execution with Python/Django pytest-xdist library in Docker}
 
-            \resumeItem{Decreased an endpoint's response time by 20x, fixing a pagination query bug in PHP/Symfony}
+            \resumeItem{Reduced PHP memory consumption by over 90\% and cut endpoint latency up to 20x across 26 repositories by converting eager Doctrine ORM hydration calls into database-level paginated queries}
 
             \resumeItem{Cut infrastructure costs by eliminating an always-on worker pod, building a PHP/Symfony API that serves student-progress data on demand}
 
@@ -145,7 +145,7 @@
         \resumeItemListStart
             \resumeItem{Removed 5 classes of exposed entry points, config, backup, source, dependency, and CMS-exploit paths, from a Python/Django app's public attack surface by blocking automated bot probes at the Nginx gateway}
 
-            \resumeItem{Prevented sales lead loss from transient network failures by decoupling CRM lead sync into a Python/Django Celery task queue on Docker workers, with automatic retries}
+            \resumeItem{Made 100\% of failed CRM lead syncs recoverable by decoupling landing-page lead delivery into an asynchronous Celery task queue on Docker workers, with automatic retries and per-lead tracking}
 
             \resumeItem{Cut manual sync-recovery effort 90\% with a PHP/Symfony HubSpot sync-schedule manager, auto-listing failed payment syncs with one-click admin retries}
 
