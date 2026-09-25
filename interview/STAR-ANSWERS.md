@@ -73,29 +73,31 @@ could do rather than just making something faster.
 
 ## 3. Tell me about the hardest bug you have debugged
 
-**Situation.** We had an endpoint in a PHP Symfony service that had become unusably slow.
-Users were waiting a long time on a page that should have returned quickly, and it had been
-that way long enough that people had started treating it as normal.
+**Situation.** We had critical administrative endpoints in a PHP Symfony platform that had
+become unusably slow and were frequently crashing with Out-Of-Memory errors during peak hours.
+Users were waiting multiple seconds on pages that should have loaded instantly, and team members
+had started treating slow queries as normal.
 
-**Task.** I picked it up to find out what was actually happening rather than adding a cache on
-top of a problem nobody understood.
+**Task.** I investigated to find the underlying architectural cause rather than just bumping
+container memory limits or adding an unprincipled cache layer on top of a broken query.
 
-**Action.** I started from the database side rather than the application code, because the
-response time scaled with data volume rather than with request rate, which pointed at a query
-rather than at load. When I traced the query the endpoint was generating, the pagination was
-wrong. Instead of limiting the result set at the database, the query was pulling far more rows
-than the page needed and the pagination was effectively being applied after the fact. Every
-request was doing a large amount of work and then throwing most of it away.
+**Action.** I started from the database and memory profiling side rather than the application
+views, because resource consumption scaled with the total row count rather than with concurrent
+traffic. When I traced how our Doctrine repositories interacted with the pagination layer, I
+found that multiple repositories were executing `$qb->getQuery()->getResult()` before handing
+data over to the paginator. The ORM was loading and hydrating tens of thousands of full entity
+objects into PHP RAM just to display thirty records on screen.
 
-The fix itself was not large once I understood it, which is often how these go. The
-significant part was confirming the diagnosis before changing anything: I wanted to know that
-the query was the cause and not just correlated with the symptom, so I checked the generated
-SQL directly rather than trusting the ORM abstraction.
+Instead of patching only the single endpoint that crashed, I audited the pattern across the
+entire codebase. I systematically refactored twenty-six repositories and controllers, converting
+eager hydration calls into database-delegated queries where the database executes strict LIMIT
+and OFFSET clauses and PHP hydrates only the active page.
 
-**Result.** Response time dropped by twenty times. The lesson I took from it is that the
-slowest part of debugging is usually deciding where to look, and that an ORM will happily hide
-a bad query behind reasonable-looking code. I now read the generated SQL early when something
-is slow, rather than late.
+**Result.** PHP memory consumption dropped by over ninety percent across those routes, completely
+eliminating out-of-memory crashes, and endpoint response times dropped by up to twenty times.
+The lesson I took is that an ORM abstraction will happily hide massive memory allocations behind
+clean-looking code. When debugging latency and resource exhaustion, I always inspect the hydration
+lifecycle and the generated SQL directly.
 
 ---
 
@@ -308,6 +310,85 @@ unambiguous written contracts to work against.
 **Result.** All three are live and I can walk through any of them. I would be direct that this
 is project experience rather than years of production TypeScript, but it is real, deployed,
 and I own every decision in it.
+
+---
+
+## 11. Tell me about a time a third-party integration failed and how you handled it
+
+**Situation.** On our landing pages, user sign-ups and sales leads were synchronized directly
+with an external CRM via the ActiveCampaign API. The integration was executed synchronously
+inside a Django post-save signal during the web request lifecycle.
+
+**Task.** Whenever the third-party API experienced network latency spikes or transient outages,
+our web requests hung until timing out with 504 Gateway errors. Prospective buyers saw a broken
+page, and high-value marketing leads were silently lost because there was no durable retry mechanism.
+
+**Action.** I decoupled the external CRM integration from the user-facing request flow by moving
+it to an asynchronous Celery task queue running on Docker workers with Redis. In the signal, I
+only serialized the conversion data and dispatched a background task.
+
+In the task definition, I configured an automatic exponential retry policy for transient network
+exceptions with up to ten retries over an extended backoff window, guarded by an idempotency flag
+on the database record to prevent duplicate CRM entries. To ensure total operational transparency,
+I built a custom Celery result backend that extracted the lead's email address and displayed it
+directly in the Django admin interface alongside failure tracebacks and a one-click manual retry action.
+
+**Result.** HTTP request response times for sign-ups dropped to under eighty milliseconds, and we
+achieved one hundred percent fault tolerance on lead synchronization. Even during prolonged CRM
+API downtime, zero leads disappeared, and every failed sync was visible and recoverable.
+
+---
+
+## 12. Tell me about a time you modernized a legacy codebase or managed technical debt
+
+**Situation.** Our primary sales and events platform was running on Django 3.0 and Python 3.8.
+It relied on abandoned open-source libraries, including an unmaintained django-jsonfield fork and
+an obsolete model-mommy testing fixture package that triggered constant deprecation warnings and
+broke modern test runners. The technical debt prevented us from applying security patches and
+blocked the team from taking advantage of modern Python interpreter performance gains.
+
+**Task.** I took ownership of modernizing the core infrastructure across the application without
+disrupting ongoing marketing campaigns or causing data regressions in production.
+
+**Action.** I executed the modernization in disciplined, incremental phases. First, I refactored
+the domain models to eliminate the third-party jsonfield package, replacing it with Django's native
+JSONField and carefully migrating existing historical database migrations. Next, I updated our
+entire testing infrastructure from model-mommy to model-bakery, eliminating deprecation noise and
+restoring clean test execution.
+
+Finally, I upgraded our container base images and framework configurations directly to Python 3.13
+and Django 5.2, updating ecosystem dependencies and adjusting settings to enforce modern defaults.
+
+**Result.** We brought the codebase to the modern LTS version of the framework, completely
+eliminating one hundred percent of deprecated legacy packages and resolving critical security
+vulnerabilidades with zero production regressions and faster test feedback.
+
+---
+
+## 13. Tell me about a feature you built that eliminated operational bottlenecks
+
+**Situation.** Whenever the marketing and operations teams launched a new course, postgraduate
+program, or promotional campaign, setting up the sales page was an arduous manual process. Each
+page consisted of dozens of complex sections and nested child entities: mentors, live classes,
+curriculum disciplines, bonus items, and testimonials.
+
+**Task.** Setting up a single page took marketing roughly thirty minutes of error-prone data entry
+in the admin panel, often requiring backend engineers to write one-off database scripts to help
+clone existing campaign structures. I wanted to give non-technical stakeholders complete autonomy.
+
+**Action.** I designed an introspection-based cascade duplication engine in Python. Using Django's
+internal meta API, the use case dynamically inspects any model class, creates a deep copy of the
+parent section, assigns unique slugs, and automatically discovers all reverse one-to-many
+relationships. It then iterates over the related managers, clones each child entity, repoints the
+foreign key to the new parent, and commits the entire hierarchy inside an atomic database transaction.
+
+I packaged this logic into a reusable Django Admin Mixin that injected a one-click clone action
+across fifteen distinct section models in the CMS.
+
+**Result.** Setting up complex multi-relational sections dropped from thirty minutes of manual
+typing to about two minutes, representing an operational acceleration of over ninety percent. It
+completely eliminated engineering involvement in marketing page setup and prevented referential
+integrity errors during campaign launches.
 
 ---
 
