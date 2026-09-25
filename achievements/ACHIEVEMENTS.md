@@ -45,11 +45,12 @@ go in a bullet.
 
 These are the bullets currently earning their place. All confirmed by Gabriel.
 
-### R1. 20x endpoint response time
-**Y = 20x** | PHP, Symfony, Doctrine
+### R1. 20x endpoint response time and 90%+ RAM reduction in ORM pagination
+**Y = 20x (latency) / 90%+ (RAM reduction)** | PHP, Symfony, Doctrine
 
-- *Backend:* Decreased an endpoint's response time by 20x by identifying the root cause of a pagination query bug in a production PHP/Symfony service and shipping an immediate fix.
-- *Performance:* Cut a production endpoint's response time 20x by root-causing and fixing a pagination query defect.
+- *Backend (Scope across 26 repositories):* Reduced PHP memory consumption by over 90% and improved endpoint response times up to 20x across 26 repositories by converting eager Doctrine ORM hydration calls into database-level paginated queries.
+- *Performance (Single endpoint focus):* Decreased an endpoint's response time by 20x by identifying the root cause of a pagination query bug in a production PHP/Symfony service and shipping an immediate fix.
+- *Short:* Cut production endpoint response times up to 20x and reduced PHP memory usage by 90%+ across 26 repositories by replacing eager Doctrine ORM hydration with database-level pagination.
 
 ### R2. Up to 80% lower query latency
 **Y = up to 80%** | PHP, Symfony, Doctrine
@@ -373,6 +374,14 @@ if it still fails, recoverable by hand. That is the 100%.
 > guarantees, provable from the code, and it does not depend on knowing the failure rate.
 > Do not restate it as "eliminated 100% of lead loss", which would be a rate claim and is
 > not supported.
+
+### R13. 100% of deprecated packages eliminated in core stack modernization
+**Y = 100% (deprecated packages eliminated) / 2 major versions upgraded** | Python, Django, Docker
+**Verified sole author:** commits `4b6df7f8`, `cae82cc8`, `17caa826`, `9604ff34` (Python 3.13 / Django 5.2).
+
+- *Primary (USE THIS):* Modernized core backend infrastructure from Django 3.0 to 5.2 and Python 3.8 to 3.13, eliminating 100% of deprecated packages and resolving critical security vulnerabilities with zero production regressions.
+- *Testing framing:* Modernized the test and domain infrastructure across a production Django application, replacing abandoned libraries with native JSONField models and model-bakery fixtures to achieve full compatibility with Python 3.13 and Django 5.2.
+- *Short:* Modernized core backend infrastructure from Django 3.0 to 5.2 and Python 3.13, eliminating 100% of deprecated packages.
 
 ### W9. MERGED INTO R10 — Production TLS and transport hardening
 **Status:** absorbed. Same June 2026 work. There is one Nginx security achievement, not two.
