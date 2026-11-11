@@ -20,3 +20,7 @@
 *.swp
 
 *.pdf
+
+# Tailored resumes output
+tailored/*
+!tailored/.gitkeep

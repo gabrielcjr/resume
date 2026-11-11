@@ -1,7 +1,7 @@
 %-------------------------
 % Resume in Latex
 % Template author : Glauber Santana
-% MASTER resume — do not tailor this file directly.
+% MASTER resume: do not tailor this file directly.
 % Tailor per application with the /tailor-resume skill, which writes a copy to tailored/
 % License : MIT
 %------------------------
@@ -115,20 +115,22 @@
 % -------------------- EXPERIENCE --------------------
 \section{Experience}
     \resumeSubHeadingListStart
-        \resumeProjectHeading{Backend Developer — Full Cycle}{July 2025 -- July 2026}
+        \resumeProjectHeading{Backend Developer, Full Cycle}{July 2025 -- July 2026}
         \resumeItemListStart
             \resumeItem{Accomplished a 90\% acceleration in page section setup by engineering reusable Python/Django admin mixins, enabling instant deep-cloning of multi-relational sections}
 
-            \resumeItem{Cut the cost of 100\% of unwanted AI API token consumption on disabled courses by engineering granular feature flags in Python/Django with admin controls and conditional UI rendering}
+            \resumeItem{Cut the cost of 100\% of unwanted AI API token consumption on disabled courses by engineering granular feature flags in Python/Django with admin controls and backend service gating}
+
+            \resumeItem{Removed 5 classes of exposed entry points, config, backup, source, dependency, and CMS-exploit paths, from a Python/Django app's public attack surface by blocking automated bot probes at the Nginx gateway}
 
             \resumeItem{Eliminated manual work 100\% by automating challenge evaluation with a PHP/Symfony webhook integration to an AI-powered microservice}
 
             \resumeItem{Reduced diploma issuance time by 85\% by building an in-house diploma registry and issuance system in PHP/Symfony, replacing a manual process routed through a third-party university issuer}
 
-            \resumeItem{\textit{Context: Full Cycle is a leading Brazilian software engineering company and developer-education platform, focused on microservices and distributed systems. As a backend engineer on the internal product team, I built internal tooling and automation to eliminate manual work across the platform — from reusable admin components that accelerated content setup, to feature-flag systems that controlled AI API costs, to event-driven integrations automating student-facing workflows like credential issuance and challenge evaluation.}}
+            \resumeItem{\textit{Context: Full Cycle is a leading Brazilian software engineering company and developer-education platform, focused on microservices and distributed systems. As a backend engineer on the internal product team, I built internal tooling and automation to eliminate manual work across the platform: from reusable admin components that accelerated content setup, to feature-flag systems that controlled AI API costs, to event-driven integrations automating student-facing workflows like credential issuance and challenge evaluation.}}
         \resumeItemListEnd
 
-        \resumeProjectHeading{Backend Developer — Full Cycle}{July 2024 -- June 2025}
+        \resumeProjectHeading{Backend Developer, Full Cycle}{July 2024 -- June 2025}
         \resumeItemListStart
             \resumeItem{Accomplished a 15\% increase in server performance, by performing runtime, framework, and dependency upgrades to a production Python/Django sales application}
 
@@ -138,13 +140,11 @@
 
             \resumeItem{Cut infrastructure costs by eliminating an always-on worker pod, building a PHP/Symfony API that serves student-progress data on demand}
 
-            \resumeItem{\textit{Context: On the same team, I focused on performance and infrastructure reliability — upgrading and modernizing legacy Python/Django systems, optimizing database queries and CI/CD pipeline execution, and reducing infrastructure costs through more efficient service design.}}
+            \resumeItem{\textit{Context: On the same team, I focused on performance and infrastructure reliability: upgrading and modernizing legacy Python/Django systems, optimizing database queries and CI/CD pipeline execution, and reducing infrastructure costs through more efficient service design.}}
         \resumeItemListEnd
 
-        \resumeProjectHeading{Backend Developer — Full Cycle}{June 2023 -- June 2024}
+        \resumeProjectHeading{Backend Developer, Full Cycle}{June 2023 -- June 2024}
         \resumeItemListStart
-            \resumeItem{Removed 5 classes of exposed entry points, config, backup, source, dependency, and CMS-exploit paths, from a Python/Django app's public attack surface by blocking automated bot probes at the Nginx gateway}
-
             \resumeItem{Made 100\% of failed CRM lead syncs recoverable by decoupling landing-page lead delivery into an asynchronous Celery task queue on Docker workers, with automatic retries and per-lead tracking}
 
             \resumeItem{Cut manual sync-recovery effort 90\% with a PHP/Symfony HubSpot sync-schedule manager, auto-listing failed payment syncs with one-click admin retries}
@@ -154,7 +154,7 @@
             \resumeItem{\textit{Context: Earlier role on the same internal product team, where I accumulated Support Analyst and Development responsibilities, delivering backend features across both the Python/Django and PHP/Symfony sides of the platform while handling support duties in parallel. Focused on CRM integrations, asynchronous processing, student lifecycle automation, and test infrastructure modernization.}}
         \resumeItemListEnd
 
-        \resumeProjectHeading{Software Analyst — Full Cycle}{February 2021 -- May 2023}
+        \resumeProjectHeading{Software Analyst, Full Cycle}{February 2021 -- May 2023}
         \resumeItemListStart
             \resumeItem{\textit{Context: Technical role focused on the analysis, support, and troubleshooting of software projects, including code analysis, error identification, and implementation of fixes. Provided support to students in resolving issues related to software development and project execution, requiring practical knowledge of programming and the technologies used in the courses.}}
         \resumeItemListEnd
@@ -163,17 +163,17 @@
 % -------------------- PROJECTS --------------------
 \section{Projects}
     \resumeSubHeadingListStart
-        \resumeProjectHeading{ATSProof — Python, FastAPI, LLM Integration}{\href{https://atsproof.website}{atsproof.website}}
+        \resumeProjectHeading{ATSProof: Python, FastAPI, LLM Integration}{\href{https://atsproof.website}{atsproof.website}}
         \resumeItemListStart
             \resumeItem{Privacy-first resume and job matcher with three-tier LLM failover across Google Gemini and Groq, prompt-injection defenses using XML boundary isolation, per-IP rate limiting, and fully in-memory PDF processing that persists no user data. 256 tests.}
         \resumeItemListEnd
 
-        \resumeProjectHeading{DevATS — TypeScript, NestJS, PostgreSQL, Redis}{\href{https://findjobs.gabrielcjr.website}{findjobs.gabrielcjr.website}}
+        \resumeProjectHeading{DevATS: TypeScript, NestJS, PostgreSQL, Redis}{\href{https://findjobs.gabrielcjr.website}{findjobs.gabrielcjr.website}}
         \resumeItemListStart
             \resumeItem{Job market analytics platform backend: NestJS (Fastify) and Prisma data layer, Redis cache-aside and distributed rate limiting, and a GitHub Actions CI gate enforcing backward compatibility. Documented with Architecture Decision Records and an MCP-based multi-agent development workflow.}
         \resumeItemListEnd
 
-        \resumeProjectHeading{AMAE — Python, Django, PostgreSQL}{\href{https://amae.gabrielcjr.website}{amae.gabrielcjr.website}}
+        \resumeProjectHeading{AMAE: Python, Django, PostgreSQL}{\href{https://amae.gabrielcjr.website}{amae.gabrielcjr.website}}
         \resumeItemListStart
             \resumeItem{Financial platform managing sponsor-to-recipient adoptions, transaction ledgers, and generated receipt PDFs, with a Redis-backed rate limiter and production security hardening for reverse-proxy deployment.}
         \resumeItemListEnd
@@ -182,10 +182,10 @@
 % -------------------- EDUCATION --------------------
 \section{Education}
     \resumeSubHeadingListStart
-        \resumeProjectHeading{MBA in Software Engineering with AI — Full Cycle}{July 2025 -- September 2026}
-        \resumeProjectHeading{MBA - Arquitetura Full Cycle — Full Cycle}{January 2023 -- September 2024}
-        \resumeProjectHeading{Bachelor of Applied Science (BASc), Computer Software Engineering — Ampli}{May 2022 -- May 2025}
-        \resumeProjectHeading{Master of Christian Studies — Union University}{December 2018 -- November 2024}
-        \resumeProjectHeading{Bachelor of Business Administration (BBA) — UEFS}{February 2004 -- May 2009}
+        \resumeProjectHeading{MBA in Software Engineering with AI, Full Cycle}{July 2025 -- December 2026}
+        \resumeProjectHeading{MBA in Arquitetura Full Cycle, Full Cycle}{January 2023 -- September 2024}
+        \resumeProjectHeading{Bachelor of Applied Science (BASc), Computer Software Engineering, Ampli}{May 2022 -- May 2025}
+        \resumeProjectHeading{Master of Christian Studies, Union University}{December 2018 -- November 2024}
+        \resumeProjectHeading{Bachelor of Business Administration (BBA), UEFS}{February 2004 -- May 2009}
     \resumeSubHeadingListEnd
 \end{document}

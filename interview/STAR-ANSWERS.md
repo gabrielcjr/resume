@@ -6,8 +6,8 @@ seconds, Result 25 seconds.
 
 **Rules for yourself:**
 - Every number here is verified. Do not round up under pressure.
-- If asked about React, Node, TypeScript, FastAPI, or LangChain, say **personal projects**.
-  Never imply professional use. Same for AWS EC2 and Lambda.
+- If asked about Node, TypeScript, FastAPI, or LangChain, say **personal projects**.
+  Never imply professional use. Same for AWS EC2 and Lambda. If asked about React or frontend, state plainly that your focus and core expertise is purely backend engineering.
 - Say **remediation**, not "completed the migration". Your contract ended before deploy.
 - If you do not know a number, say so. "I did not measure that" is a strong answer.
 
@@ -19,8 +19,7 @@ seconds, Result 25 seconds.
 
 I am a software engineer with five and a half years at Full Cycle, a Brazilian software
 engineering company that runs a large developer education platform. I started as a Software
-Analyst supporting students on their projects, moved into backend development, and spent my
-last two years as a Full Stack Developer.
+Analyst supporting students on their projects, and spent my last three years focused entirely on backend development and infrastructure.
 
 My depth is backend, Python with Django and PHP with Symfony, working on a platform with
 around three hundred entities and a large amount of production traffic. Most of my work has
@@ -34,8 +33,8 @@ and cut issuance time by eighty-five percent.
 More recently I have been working with AI, and not just using it. I built a set of custom AI
 agent audit skills to drive a framework migration across a three hundred and sixty thousand
 line codebase, which cut the remediation time by about seventy-five percent. I also have three
-applications I built and deployed myself, using FastAPI, NestJS and React, which is where my
-TypeScript and front-end framework experience comes from.
+backend applications I built and deployed myself, using FastAPI and NestJS, which is where my
+TypeScript and Node.js backend experience comes from.
 
 I hold two MBAs, one in Software Architecture and one in Software Engineering with AI. I am
 looking for a team where I can keep working on backend systems with real business impact.
@@ -264,8 +263,8 @@ of frustration.
 What I want next is honestly informed by what I have been doing since. I have spent the time
 building and deploying three applications of my own rather than only applying to roles. I did
 that partly to stay sharp and partly because there were things I wanted to understand properly
-rather than at the level a job had required, particularly LLM integration and modern
-TypeScript front ends.
+rather than at the level a job had required, particularly LLM integration, event-driven architectures, and modern
+TypeScript and Node.js backend services.
 
 What I am looking for is a team where backend work is connected to a real business domain. The
 work I have been proudest of has been where I understood why something mattered commercially,
@@ -287,15 +286,14 @@ I am hoping to try.
 ## 10. Tell me about a time you had to learn something quickly
 
 **Situation.** When my contract at Full Cycle ended, my professional experience was Python and
-PHP on the backend, with server-rendered front ends: Twig, Django templates, SCSS and jQuery.
-I could see from the roles I was interested in that a lot of them expected TypeScript and a
-component framework, and that reading about it would not be enough.
+PHP on the backend. I could see from modern backend roles that many engineering teams also leverage
+TypeScript and Node.js services alongside Python, and that reading about it would not be enough.
 
 **Task.** I decided the only credible way to learn it was to build and deploy real
 applications, not follow tutorials, so that the failure modes would be real ones.
 
-**Action.** I built three. The first is a job market analytics platform with a NestJS and
-Prisma backend and a React front end, with Redis for caching and rate limiting, and a CI
+**Action.** I built three. The first is a job market analytics platform with a NestJS (Fastify) and
+Prisma backend with PostgreSQL, Redis for caching and distributed rate limiting, and a CI
 pipeline that enforces backward compatibility by detecting database migration drift. The second
 is a resume and job description matcher in FastAPI with multi-provider LLM failover. The third
 is a Django platform for a missionary support organization that handles financial adoptions,
@@ -361,7 +359,7 @@ and Django 5.2, updating ecosystem dependencies and adjusting settings to enforc
 
 **Result.** We brought the codebase to the modern LTS version of the framework, completely
 eliminating one hundred percent of deprecated legacy packages and resolving critical security
-vulnerabilidades with zero production regressions and faster test feedback.
+vulnerabilities with zero production regressions and faster test feedback.
 
 ---
 

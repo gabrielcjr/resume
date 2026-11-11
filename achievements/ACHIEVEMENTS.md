@@ -41,7 +41,7 @@ go in a bullet.
 
 ---
 
-# READY (10)
+# READY (13)
 
 These are the bullets currently earning their place. All confirmed by Gabriel.
 
@@ -119,10 +119,9 @@ These are the bullets currently earning their place. All confirmed by Gabriel.
 **Y = 5 classes** | Python, Django, Nginx, Kubernetes ingress
 **Verified sole author:** three commits, 2026-06-19 (`chore: harden nginx config and tighten .dockerignore`, `fix: refine nginx hardening per review`, `feat: trust ingress TLS and secure cookies in prod`).
 
-**DATE CORRECTION — ACT ON THIS.** `main.tex` files this bullet under **Backend Developer,
-June 2023 to June 2024**. The work is dated **2026-06-19**, which belongs under
-**Full Stack Developer, July 2025 to July 2026**. There is no earlier bot-blocking Nginx
-work by Gabriel in any of the three repositories. Move the bullet up two job entries.
+**DATE CORRECTION APPLIED IN MASTER.** In `main.tex`, this bullet is filed under **Backend Developer,
+July 2025 to July 2026** (dated **2026-06-19**). There is no earlier bot-blocking Nginx
+work by Gabriel in any of the three repositories.
 
 **W9 merged in.** The "production TLS and transport hardening" entry was the same work.
 There is only one Nginx security achievement, not two.
@@ -216,7 +215,7 @@ Also his: `ReportRepository` query decoupling, subquery optimization of
 rather than achievements.
 
 ### W14. AI agent tooling for a legacy framework migration
-**Needs:** Y from Gabriel (see below). | Claude Code skills, PHP, Symfony
+**Status:** MODELED Y (75%). | Claude Code skills, PHP, Symfony
 **Verified:** top contributor to `.claude/skills/` (60 file-touches to Isac's 42); **created 7 of the 12 committed skills**: `audit-config-sf4`, `audit-entities-sf4`, `audit-listeners-sf4`, `audit-migrations-sf4`, `audit-repositories-sf4`, `audit-twig-sf4`, `validate-forms-browser`. Co-built with Isac Sousa (June 2026).
 
 Purpose-built AI agent tooling to drive the Symfony 4.4 / PHP 8.1 migration (**W6**): a suite
@@ -321,7 +320,7 @@ filter on `gacarneirojr@hotmail.com` (Carneiro), never on the name "Gabriel".
 Gabriel Caetano is `98gabrielsc@gmail.com` / `gabrielsc1998`.
 
 What *is* verifiably Gabriel Carneiro's inside this app is captured in **R9** (deep-cloning
-sections) and **W13** (bulk admin actions). Those hold up: every commit in the repo touching
+sections) and **R12** (bulk admin actions). Those hold up: every commit in the repo touching
 `DuplicateSection` is his.
 
 ### R12. 87% fewer operations for catalog-wide campaign updates
@@ -462,43 +461,11 @@ experience bullet on any of them.
 
 ---
 
-# FRONT-END AT FULL CYCLE (professional, server-rendered)
+# HISTORICAL FRONT-END CONTEXT (ARCHIVED / EXCLUDED)
 
-**Corrects an earlier misreading.** Gabriel's Full Cycle work was described as uniformly
-backend. It is not. He did substantial professional front-end work; it is server-rendered
-rather than SPA.
+**Positioning Directive:** Gabriel's positioning and resumes are strictly Backend Software Engineering. Drop any React, front-end, or full-stack mentioning. Do not surface front-end templates, styling, or UI frameworks on resumes.
 
-| Repo | His front-end file touches |
-| --- | --- |
-| codeplatform | **712 Twig templates**, 5 JS, 5 CSS |
-| eventsplatform | **222 HTML**, **71 SCSS**, 6 JS |
-| forum-code-education | 28 HTML |
-
-**Stack:** Twig (Symfony) and Django templates, SCSS compiled through webpack, Bootstrap,
-jQuery, vanilla JS. No component framework.
-
-**Verified interactive work, all his:**
-
-- **AJAX-driven filtering and dynamic UI:** classroom filter by course over AJAX (2026-04-06); endpoint and UI for classrooms with overdue invoices (2026-02-23); overdue awareness report with classroom selection over AJAX (2026-02-20)
-- **Defensive UX:** error handling on AJAX filter dropdowns to prevent a stuck loading state (2026-04-06); disabling the certificate request submit button during AJAX calls to prevent double submission (2025-12-18)
-- **UI components:** action buttons refactored into a dropdown menu on certificate requests (2026-01-30); modal on wait-list button click (2023-08-02); calendar display (2026-04-16)
-- **Build pipeline and styling:** adding SCSS to webpack (2025-07-24), splitting CSS into block-level stylesheets (2026-01-30), discipline and per-page SCSS
-
-- *Full-stack framing:* Delivered full-stack features end to end, building server-rendered interfaces in Twig and Django templates with SCSS and AJAX-driven filtering, alongside the APIs and data layers behind them.
-- *Front-end emphasis:* Built interactive admin and reporting interfaces with AJAX filtering, dynamic dropdowns, modals, and defensive loading and double-submit handling, styled with SCSS through a webpack pipeline.
-
-## The distinction that must always hold
-
-**True:** 3+ years of professional full-stack work, server-rendered (Twig, Django templates,
-SCSS, jQuery, AJAX). His job title at Full Cycle was literally **Full Stack Developer**.
-
-**Not true:** 3 years of professional **React** or component-framework SPA experience. React,
-Node.js, and NestJS are real skills evidenced by **deployed personal projects built in 2026**.
-
-**Never blur these to clear a JD threshold.** If a posting gates on "N years of React" or
-"N years of Node", that is a **real gap**, and it gets reported as one. Use the full-stack
-framing above where the JD wants full-stack breadth without naming a specific framework, and
-it is entirely honest there.
+Historical note: Front-end templates (Twig, Django templates, SCSS) touched at Full Cycle were server-rendered interfaces supporting backend platform features. Gabriel does not position himself as a full-stack or front-end engineer and does not target front-end roles.
 
 ---
 
@@ -509,10 +476,7 @@ They must sit in a separate **Projects** section on the resume and never appear 
 under a Full Cycle role. Mixing them would be the same attribution failure that withdrew W3,
 W5, and W7.
 
-**`main.tex` currently has no Projects section.** Adding one is the single biggest structural
-improvement available, because these four projects supply evidence for claims the Full Cycle
-work cannot support: React, Node/NestJS, FastAPI, LangChain, MCP, multi-agent workflows, SDD
-and ADR.
+**`main.tex` includes a dedicated Projects section.** This section provides critical evidence for claims the Full Cycle work cannot support: Node/NestJS, TypeScript, FastAPI, LangChain, MCP, multi-agent workflows, SDD, and ADR.
 
 **Three are deployed and publicly reachable**, which materially raises their weight: a
 recruiter can click and see a running application rather than take a repo on faith. Include
@@ -521,9 +485,9 @@ the live URL with each.
 | Project | Live | Repo | Stack | Commits |
 | --- | --- | --- | --- | --- |
 | **ATSProof** | `atsproof.website` | `gabrielcjr/atsproof` | FastAPI, HTMX, Tailwind, Gemini + Groq | 40 |
-| **DevATS** | `findjobs.gabrielcjr.website` | `gabrielcjr/jobs_nestjs_react` | NestJS, React 19, Prisma, Redis | 56 |
+| **DevATS** | `findjobs.gabrielcjr.website` | `gabrielcjr/jobs_nestjs_react` | NestJS, Prisma, PostgreSQL, Redis | 56 |
 | **AMAE** | `amae.gabrielcjr.website` | `gabrielcjr/amae` | Django 6.1, HTMX 2, PostgreSQL 18 | 62 |
-| **Technical Challenge Reviewer** | not deployed | `gabrielcjr/technical_challenge_reviewer` | Django + FastAPI + React + LangChain | 81 |
+| **Technical Challenge Reviewer** | not deployed | `gabrielcjr/technical_challenge_reviewer` | Django + DRF + FastAPI + LangChain | 81 |
 
 All four are sole-authored (100% of commits `gacarneirojr@hotmail.com`).
 
@@ -559,25 +523,22 @@ The most impressive of the four, and the most relevant to AI-focused roles:
 ---
 
 ## DevATS — `findjobs.gabrielcjr.website`
-**NestJS 11 (Fastify) · React 19 · Prisma · PostgreSQL 17 · Redis 7 · 56 commits · ~7,100 lines**
+**NestJS 11 (Fastify) · Prisma · PostgreSQL 17 · Redis 7 · 56 commits · ~7,100 lines**
 
-Job market analytics platform. **Deployed and live.** Full detail in the entries below.
+Job market analytics platform backend. **Deployed and live.** Full detail in the entries below.
 
-### Fills the React / Node / NestJS gap
-The fix for the most damaging gap in every recent scoring. React, Node.js, and NestJS
-previously appeared **once each, in Skills, never in a bullet**, which sank the Middle
-Fullstack (Node + React) scoring at 41% and weakened the Senior Product Engineer one on its
-hard "TypeScript **and** React" gate.
+### Fills the Node / NestJS / TypeScript backend gap
+Supplies evidence for Node.js, NestJS, and TypeScript in production-grade backend service architecture.
 
-- *Bullet:* Built and deployed a full-stack job market analytics platform in TypeScript: NestJS with Prisma and PostgreSQL on the back end, React 19 with Vite on the front end, Redis for cache-aside and distributed rate limiting, and a GitHub Actions CI gate enforcing backward compatibility.
+- *Bullet:* Built and deployed a backend job market analytics platform in TypeScript: NestJS (Fastify) with Prisma and PostgreSQL, Redis for cache-aside and distributed rate limiting, and a GitHub Actions CI gate enforcing backward compatibility.
 
 ### Substantiates the AI/agentic claims (supersedes H1)
 - **MCP:** `.agents/mcp_config.json` wires `@modelcontextprotocol/server-postgres`; ADR-0004 records the rationale (agents inspecting live DB schemas and validating aggregation query performance).
-- **Multi-agent workflows** as a development methodology: ADR-0003 defines *Multi-Agent Contract Decoupling* via TypeScript interfaces and DOM selectors; SDD-0003 splits frontend QA between *Unit QA Agents* (Vitest) and *Autonomous Browser Agents* (Playwright); ADR-0004 uses typed DTOs so frontend and backend agents work concurrently.
-- **Designing code for agent consumption**, the strongest detail: ADR-0003 mandates deterministic `data-testid` attributes *so the Browser Subagent can target and test them reliably*.
+- **Multi-agent workflows** as a development methodology: ADR-0003 defines *Multi-Agent Contract Decoupling* via TypeScript interfaces; ADR-0004 uses typed DTOs so backend agents work concurrently.
+- **Designing code for agent consumption:** typed contracts and clear boundaries for agent tool use.
 - Every ADR has an **Agentic Guardrails** section. ADR-0002 is co-attributed "Gabriel & Antigravity Agent".
 
-- *Bullet:* Designed an agentic development workflow for a full-stack TypeScript project, using Model Context Protocol (MCP) for live database schema introspection and decoupling concurrent frontend, backend, and browser QA agents through typed DTO contracts and deterministic DOM test identifiers.
+- *Bullet:* Designed an agentic development workflow for a TypeScript backend project, using Model Context Protocol (MCP) for live database schema introspection and decoupling concurrent backend agents through typed DTO contracts.
 
 ### Substantiates SDD and ADR
 The resume claims both in the summary and Skills. **This is the proof:** 5 ADRs and 5 SDDs,
@@ -589,7 +550,7 @@ cancellation, and a sub-3-minute feedback target.
 ---
 
 ## AMAE — `amae.gabrielcjr.website`
-**Django 6.1 · HTMX 2 · Tailwind 4 · PostgreSQL 18 · Redis · 62 commits · 5,626 lines · 33 tests**
+**Django 6.1 · Tailwind 4 · PostgreSQL 18 · Redis · 62 commits · 5,626 lines · 33 tests**
 
 Connects financial sponsors with missionaries across Brazil: automated financial adoptions,
 geocoded field locations, transaction logging, on-the-fly financial statements and receipt
@@ -598,7 +559,7 @@ PDFs (reportlab). **Deployed and live.**
 - Clean architecture across decoupled Django apps (`accounts`, `finance`, `missions`, `pages`)
 - **Redis-backed rate limiter** (middleware, decorator, tests) — `feat/rate-limiter-redis`
 - **Production security hardening:** `CSRF_TRUSTED_ORIGINS` and `SECURE_PROXY_SSL_HEADER` for reverse-proxy deployment, plus production security headers — the same pattern as **R10**, independently applied
-- SSR + HTMX for a no-build-step reactive frontend; gunicorn + whitenoise
+- SSR with gunicorn + whitenoise
 
 - *Bullet:* Built and deployed a Django financial platform managing sponsor-to-missionary adoptions, transaction ledgers, and generated receipt PDFs, with a Redis-backed rate limiter and production security hardening for reverse-proxy deployment.
 - *Domain framing:* Delivered a financial adoption platform with transactional integrity across sponsors, recipients, and payment records, including automated statement and receipt generation.
@@ -609,14 +570,14 @@ PDFs (reportlab). **Deployed and live.**
 ---
 
 ## Technical Challenge Reviewer
-**Django 5.1 + DRF + Celery · FastAPI 0.115 + LangChain · React 19 · PostgreSQL 17 · Redis · Nginx · 81 commits**
+**Django 5.1 + DRF + Celery · FastAPI 0.115 + LangChain · PostgreSQL 17 · Redis · Nginx · 81 commits**
 
 Not deployed, and not in the portfolio. Still the best evidence for FastAPI and LangChain.
 
-**Architecture:** React SPA → Django REST API (persists submission, returns 201) →
+**Architecture:** Django REST API (persists submission, returns 201) →
 Celery/Redis queue → FastAPI evaluator microservice (clones repo via GitPython, collects
 source files, calls LLMs through LangChain) → authenticated webhook callback
-(`X-Internal-Token`) → Django applies APPROVED / REJECTED / FAILED → SPA polls.
+(`X-Internal-Token`) → Django applies APPROVED / REJECTED / FAILED.
 
 ### Substantiates FastAPI and LangChain
 **This closes the open FastAPI question.** FastAPI was Skills-list-only and was deliberately
@@ -648,8 +609,7 @@ What the four projects supply that Full Cycle work cannot:
 
 | Claim | Evidence |
 | --- | --- |
-| React, TypeScript | DevATS (React 19), Technical Challenge Reviewer (React 19) |
-| Node.js, NestJS | DevATS (NestJS 11, Fastify) |
+| TypeScript, Node.js | DevATS (NestJS 11, Fastify) |
 | FastAPI | ATSProof, Technical Challenge Reviewer |
 | LangChain | Technical Challenge Reviewer |
 | MCP, multi-agent workflows | DevATS (ADRs/SDDs) |

@@ -30,9 +30,9 @@ A structured, evidence-based repository for managing Gabriel Carneiro's master L
 1. **Never Fabricate:** Tailoring surfaces, reorders, and rewires verified achievements to match the job description vocabulary. It never invents skills, tools, or metrics.
 2. **Business Outcomes over Activity:** Resume bullets strictly follow Google's XYZ formula (*Accomplished [X] as measured by [Y] by doing [Z]*). Commits, lines of code, and file touch numbers belong in [EVIDENCE.md](file:///home/gacar/resume/achievements/EVIDENCE.md) for interview context, never as resume metrics.
 3. **Transparent Boundaries:**
-   - **Production Fullstack:** 3+ years professional fullstack experience at Full Cycle with Python, Django, PHP/Symfony, PostgreSQL, and server-rendered interfaces (Twig, Django templates, SCSS, AJAX).
-   - **Personal Deployed Projects:** Modern component frameworks (React 19, Vite, NestJS, FastAPI) are demonstrated via live, deployed production projects ([DevATS](https://findjobs.gabrielcjr.website), [ATSProof](https://atsproof.website), [AMAE](https://amae.gabrielcjr.website)).
-   - **Real Gaps:** Hard requirements like Go, Java/Spring Boot, or Kafka are treated as real gaps and never papered over.
+   - **Production Backend:** 3+ years professional backend engineering experience at Full Cycle with Python, Django, PHP/Symfony, PostgreSQL, MySQL, Redis, and event-driven architectures.
+   - **Personal Deployed Projects:** Modern backend services (FastAPI, NestJS, Prisma, Redis) and agentic workflows are demonstrated via live, deployed production projects ([DevATS](https://findjobs.gabrielcjr.website), [ATSProof](https://atsproof.website), [AMAE](https://amae.gabrielcjr.website)).
+   - **Real Gaps / Out of Scope:** React, frontend frameworks, Go, Java/Spring Boot, and Kafka are treated as real gaps or out of scope and never papered over. Gabriel's core is strictly backend engineering.
 4. **Writing Style:** No em dashes or en dashes in generated resumes or recruiter communications.
 
 ***
@@ -47,11 +47,7 @@ The master resume is written in standard LaTeX. To compile locally:
 pdflatex main.tex
 ```
 
-Or using `latexmk`:
-
-```bash
-latexmk -pdf main.tex
-```
+(Note: Windows MiKTeX is mapped via symlinks at `/home/gacar/.local/bin/pdflatex`).
 
 ### 2. Evaluating a Job Description (ATS Score & Gap Analysis)
 
